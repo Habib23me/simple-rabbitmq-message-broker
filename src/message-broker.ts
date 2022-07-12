@@ -107,8 +107,8 @@ export abstract class MessageBroker {
       if (msg !== null) {
         for (const handler of this.queues[queue]) {
           const data = await handler(msg, () => {});
-          if (msg.properties.replyTo && data) {
-            this.channel.sendToQueue(msg.properties.replyTo, Buffer.from(JSON.stringify(data)), {
+          if (msg.properties.replyTo) {
+            this.channel.sendToQueue(msg.properties.replyTo, Buffer.from(JSON.stringify(data??{})), {
               correlationId: msg.properties.correlationId,
             });
           }
