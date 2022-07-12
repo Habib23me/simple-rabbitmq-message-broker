@@ -17,7 +17,12 @@
     "type": "git",
     "url": "git+https://github.com/Habib23me/simple-rabbitmq-message-broker.git"
   },
-  "keywords": ["AMQLIB","RabbitMQ","MessageBroker","MessageQueue"],
+  "keywords": [
+    "AMQLIB",
+    "RabbitMQ",
+    "MessageBroker",
+    "MessageQueue"
+  ],
   "version": "npm run format && git add -A src",
   "postversion": "git push && git push --tags",
   "author": "Habib23me",
@@ -30,12 +35,20 @@
   },
   "homepage": "https://github.com/Habib23me/simple-rabbitmq-message-broker#readme",
   "devDependencies": {
+    "@types/amqplib": "^0.8.2",
     "@types/jest": "^28.1.4",
+    "@types/lodash": "^4.14.182",
+    "@types/uuid": "^8.3.4",
     "jest": "^28.1.2",
     "prettier": "^2.7.1",
     "ts-jest": "^28.0.5",
     "tslint": "^6.1.3",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "amqplib": "^0.10.0",
+    "lodash": "^4.17.21",
+    "uuid": "^8.3.2"
   }
 }
