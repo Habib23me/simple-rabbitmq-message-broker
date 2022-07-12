@@ -101,7 +101,7 @@ export abstract class MessageBroker {
 
     this.queues[queue] = [handler];
 
-    this.channel.prefetch(1);
+    // this.channel.prefetch(1);
     this.channel.consume(queue, async (msg: any) => {
       console.log(`[ ${new Date()} ] Message received: ${JSON.stringify(JSON.parse(msg.content.toString('utf8')))}`);
       if (msg !== null) {
