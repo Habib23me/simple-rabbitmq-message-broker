@@ -113,8 +113,8 @@ export abstract class MessageBroker {
             });
           }
         }
-        this.channel.ack(msg);
       }
+      this.channel.ack(msg);
     });
     return () => this.unsubscribe(queue, handler);
   }
