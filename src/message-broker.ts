@@ -34,6 +34,8 @@ export abstract class MessageBroker {
 
             this.connection = await amqplib.connect(path);
             this._channel = await this.connection?.createChannel();
+            console.log('Connected to Rabbit MQ ' + path);
+
             return this;
         } catch (e) {
             await new Promise((_) => setTimeout(_, 1000));
