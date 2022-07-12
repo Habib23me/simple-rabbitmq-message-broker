@@ -36,7 +36,7 @@ export class JsonMessageBroker extends MessageBroker {
   }
   async sendWithReply(queue: string, msg: any) {
     const response: any = await super.sendWithReply(queue, this.serialize(msg));
-    return this.deserialize(JSON.parse(response.content.toString()));
+    return JSON.parse(response.content.toString());
   }
   async subscribe(queue: string, handler: MessageHandler) {
     return super.subscribe(queue, this.deserialize(handler));

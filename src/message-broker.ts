@@ -68,14 +68,14 @@ export abstract class MessageBroker {
       var corrId = uuidv1();
       function maybeAnswer(msg: any) {
         if (msg.properties.correlationId === corrId) {
-          resolve(msg.content.toString());
+          resolve(msg);
         }
       }
       var replyTo = (await ch.assertQueue('', { exclusive: true })).queue;
       await ch.consume(replyTo, maybeAnswer, { noAck: true });
       ch.sendToQueue(queue, msg, {
         correlationId: corrId,
-        replyTo: queue,
+        replyTo: replyTo,
       });
     });
   }
